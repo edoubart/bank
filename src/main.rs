@@ -34,16 +34,18 @@ impl Bank {
     fn new() -> Self {
         Bank { accounts: vec![] }
     }
-}
 
-fn print_account(account: &Account) {
-    println!("{:#?}", account);
+    fn add_account(&mut self, account: Account) {
+        self.accounts.push(account);
+    }
 }
 
 fn main() {
+    let mut bank = Bank::new();
+
     let account = Account::new(1, String::from("me"));
 
-    print_account(&account);
+    bank.add_account(account);
 
-    println!("{:#?}", account);
+    println!("{:#?}", bank);
 }
